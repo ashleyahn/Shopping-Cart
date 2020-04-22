@@ -3,7 +3,7 @@ import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/database';
 import { Column } from 'rbx';
-import Item from './Components/Item';
+import Grid from './Components/Grid';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAhmO59ZWHYd9Du8OvmcSRbgoam4rDBj9g",
@@ -32,19 +32,19 @@ const App = () => {
   }, []);
   console.log(products);
   return (
-    //<Grid items = {products}/>
-    <Column.Group vcentered multiline>
-      {products.map(product => 
-        <Column size="one-quarter">
-          <Item
-            key = {product.sku}
-            sku = {product.sku}
-            title = {product.title}
-            description = {product.description}
-            price = {product.price}/>
-        </Column>
-      )}
-    </Column.Group>
+    <Grid state = { {data, setData} } />
+    // <Column.Group vcentered multiline>
+    //   {products.map(product => 
+    //     <Column size="one-quarter">
+    //       <ItemCard
+    //         key = {product.sku}
+    //         sku = {product.sku}
+    //         title = {product.title}
+    //         description = {product.description}
+    //         price = {product.price}/>
+    //     </Column>
+    //   )}
+    // </Column.Group>
   );
 };
 

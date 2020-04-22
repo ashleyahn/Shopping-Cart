@@ -1,17 +1,22 @@
 import { Column } from 'rbx';
 import React from 'react';
-import Item from './Item';
+import ItemCard from './ItemCard';
 
-const Grid = items => {
-    console.log(items);
+const Grid = ( {state} ) => {
+    const products = Object.values(state.data);
     return (
-        <Column.Group>
-            {items.map(product => (
-            <Column>
-                <Item key={product.sku} title = {product.title}/>
-            </Column>
-            ))}
-        </Column.Group>
+        <Column.Group vcentered multiline>
+        {products.map(product => 
+          <Column size="one-quarter">
+            <ItemCard
+              key = {product.sku}
+              sku = {product.sku}
+              title = {product.title}
+              description = {product.description}
+              price = {product.price}/>
+          </Column>
+        )}
+      </Column.Group>
     );
 }
 
