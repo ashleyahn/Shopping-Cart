@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import firebase from 'firebase/app';
 import 'firebase/database';
-import { Column } from 'rbx';
+import { Container } from 'rbx';
 import Grid from './Components/Grid';
 
 var firebaseConfig = {
@@ -32,7 +32,9 @@ const App = () => {
   }, []);
   console.log(products);
   return (
-    <Grid state = { {data, setData} } />
+    <div id = "grid">
+      <Grid state = { {data, setData} } />
+    </div>
     // <Column.Group vcentered multiline>
     //   {products.map(product => 
     //     <Column size="one-quarter">
