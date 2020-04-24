@@ -1,6 +1,8 @@
 import React from 'react';
 import 'rbx/index.css';
-import { Card, Image, Media, Title, Content } from 'rbx';
+import { Card, Image, Media, Title, Content, Button } from 'rbx';
+
+const sizes = ['S', 'M', 'L', 'XL'];
 
 
 const ItemCard = (props) => {
@@ -27,6 +29,10 @@ const ItemCard = (props) => {
             <Title>
                 { price }
             </Title>
+            <Button.Group>
+                { sizes.map(size =>
+                ( <Button> { size } </Button> )) }
+            </Button.Group>
         </Card.Content>
         </Card>
     );
