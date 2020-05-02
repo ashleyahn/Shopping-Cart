@@ -20,8 +20,10 @@ firebase.initializeApp(firebaseConfig);
 
 
 const App = () => {
+  
   const [data, setData] = useState({});
   const products = Object.values(data);
+
   useEffect(() => {
       const fetchProducts = async () => {
       const response = await fetch('./data/products.json');
@@ -30,6 +32,7 @@ const App = () => {
     };
     fetchProducts();
   }, []);
+
   console.log(products);
   return (
     <div id = "grid">
